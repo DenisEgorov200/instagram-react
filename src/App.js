@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.scss";
+import { Routes, Route } from "react-router-dom";
+
+import Postspage from "./pages/Postspage";
+import Profilepage from "./pages/Profilepage";
+import Notfoundpage from "./pages/Notfoundpage";
+
+import Layuot from "./components/Layuot";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Layuot />}>
+          <Route index element={<Postspage />} />
+          <Route path="profile" element={<Profilepage />} />
+          <Route path="*" element={<Notfoundpage />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
 
